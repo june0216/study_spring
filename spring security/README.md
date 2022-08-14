@@ -153,3 +153,5 @@ UsernameNotFoundException {
 ```
 
 여기서 @Service를 사용해서 자동으로 스프링에서 빈으로 처리될 수 있도록 되어 있다. 이렇게 빈으로 등록되면 스프링 시큐리티에서 UserDetailsService로 인식한다. 그래서 SecurityConfig 부분에서 임시로 configure(AuthenticationManagerBuilder auth) 부분으로 직접 설정한 부분이 있다면 삭제해야한다.  아니면ClubUserDetailsService를 주입받아서 구성하는 코드를 작성하는 방법도 있다.
+
+이 글은 "코드로 배우는 스프링 부트 웹 프로젝트 : 협업 개발을 위한 단계별 실습서" 책을 읽고 정리한 글입니다.
