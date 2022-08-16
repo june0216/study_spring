@@ -1,9 +1,20 @@
 package hello.core.member;
 
 public class MemberServiceImpl implements MemberService{
-	private final MemberRepository memberRepository = new MemoryMemberRepository();
-	//그냥 인터페이스인 private final MemberRepository memberRepository; 만 구현체 연결 없이 선언하면 null 오류가 날 것이다.
-	// -> 구현 객체를 선택해야 한다.
+	/*version1 (AppConfig 추가 전 상황)
+	그냥 인터페이스인 private final MemberRepository memberRepository; 만 구현체 연결 없이 선언하면 null 오류가 날 것이다.
+	-> 구현 객체를 선택해야 한다.
+	문제점 = 여기서 DIP를 위반한다. -> memberRepository도 의존하고 이를 구현한 구현체도 의존한다.
+	private final MemberRepository memberRepository = new MemoryMemberRepository();*/
+
+
+
+	//version2 AppConfing 추가 후 상황
+	private final MemberRepository memberRepository; // 인터페이스만 의존할 수 있게 되었다.
+
+	public MemberServiceImpl(MemberRepository memberRepository) {
+		this.memberRepository = memberRepository;
+	}
 
 	@Override
 	public void join(Member member) {
