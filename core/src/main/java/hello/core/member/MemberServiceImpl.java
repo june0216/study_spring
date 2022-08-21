@@ -1,5 +1,9 @@
 package hello.core.member;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
 public class MemberServiceImpl implements MemberService{
 	/*version1 (AppConfig 추가 전 상황)
 	그냥 인터페이스인 private final MemberRepository memberRepository; 만 구현체 연결 없이 선언하면 null 오류가 날 것이다.
@@ -12,6 +16,7 @@ public class MemberServiceImpl implements MemberService{
 	//version2 AppConfing 추가 후 상황
 	private final MemberRepository memberRepository; // 인터페이스만 의존할 수 있게 되었다.
 
+	@Autowired//ac.getBean(MemberRepository.class) 이것과 비슷하게 동작
 	public MemberServiceImpl(MemberRepository memberRepository) {
 		this.memberRepository = memberRepository;
 	}

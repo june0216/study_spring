@@ -2,9 +2,8 @@ package hello.core.singleton;
 
 import hello.core.member.MemberRepository;
 import hello.core.member.MemberServiceImpl;
-import hello.core.order.AppConfig;
+import hello.core.AppConfig;
 import hello.core.order.OrderServiceImpl;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -44,6 +43,6 @@ public class ConfigurationSingletonTest {
 		//AppConfig도 스프링 빈으로 등록된다.
 		AppConfig bean = ac.getBean(AppConfig.class);
 
-		System.out.println("bean.getClass() = " + bean.getClass());//클래스 정보 출력 = class hello.core.order.AppConfig$$EnhancerBySpringCGLIB$$cfee49bc
+		System.out.println("bean.getClass() = " + bean.getClass());//클래스 정보 출력 = class hello.core.AppConfig$$EnhancerBySpringCGLIB$$cfee49bc
 	}
 }
