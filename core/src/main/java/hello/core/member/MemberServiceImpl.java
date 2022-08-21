@@ -27,4 +27,10 @@ public class MemberServiceImpl implements MemberService{
 		return memberRepository.findById(memberId);
 	} // 구현체가 하나만 있다면 관례상 impl이라고 붙여서 사용한다.
 
+	//테스트 용도
+	public MemberRepository getMemberRepository()
+	{
+		return memberRepository;
+	}
+
 }
