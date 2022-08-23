@@ -17,8 +17,27 @@ public class OrderServiceImpl implements OrderService{
 
 
 	//version2  -> AppConfig 적용 후
-	private final MemberRepository memberRepository;
+	private final MemberRepository memberRepository; //final을 한다면 생성자 코드에서만 값을 넣을 수 있음 + 생성자 코드에서 빼먹은 필드가 잆으면 알려줌
 	private final DiscountPolicy discountPolicy;
+
+/*	@Autowired
+	public void init(MemberRepository memberRepository, DiscountPolicy discountPolicy)
+	{
+		this.memberRepository = memberRepository;
+		this.discountPolicy = discountPolicy;
+	}*/
+
+/*
+	@Autowired
+	public void setMemberRepository(MemberRepository memberRepository) //메소드 이름은 set+클래스명으로 하는 것이 관례
+	{
+		this.memberRepository = memberRepository;
+	}
+	@Autowired
+	public void setDiscountPolicy(DiscountPolicy discountPolicy) {
+		this.discountPolicy = discountPolicy;
+	}
+*/
 
 	@Autowired
 	public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
@@ -26,7 +45,6 @@ public class OrderServiceImpl implements OrderService{
 		this.memberRepository = memberRepository; //할당 하는 부분
 		this.discountPolicy = discountPolicy;
 	}
-
 
 	@Override
 	public Order createOrder(Long memberId, String itemName, int itemPrice) {
