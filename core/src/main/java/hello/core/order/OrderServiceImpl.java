@@ -3,10 +3,12 @@ package hello.core.order;
 import hello.core.discount.discount.DiscountPolicy;
 import hello.core.member.Member;
 import hello.core.member.MemberRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
+//@RequiredArgsConstructor //final이 붙으면 필수값이 되니까 이 필수값을 기반으로 생성자를 만들어준다.
 public class OrderServiceImpl implements OrderService{
 
 /*	version1 -> AppConfig 적용 전
