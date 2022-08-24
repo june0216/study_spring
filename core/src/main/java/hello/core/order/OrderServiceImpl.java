@@ -1,5 +1,6 @@
 package hello.core.order;
 
+import hello.core.annotation.MainDiscountPolicy;
 import hello.core.discount.discount.DiscountPolicy;
 import hello.core.member.Member;
 import hello.core.member.MemberRepository;
@@ -42,7 +43,7 @@ public class OrderServiceImpl implements OrderService{
 */
 
 	@Autowired
-	public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+	public OrderServiceImpl(MemberRepository memberRepository, @MainDiscountPolicy DiscountPolicy discountPolicy) {
 		//-> OrderServiceImpl 어떤 구현 객체가 들어올지는 알 수 없다. 의존 관계를 외부에 맡긴 것이다.
 		this.memberRepository = memberRepository; //할당 하는 부분
 		this.discountPolicy = discountPolicy;
