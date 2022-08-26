@@ -1,4 +1,4 @@
-package hello.discount;
+package hello.core.scan.discount;
 
 import hello.core.discount.discount.RateDiscountPolicy;
 import hello.core.member.Grade;
